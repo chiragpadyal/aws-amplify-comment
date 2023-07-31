@@ -1,190 +1,48 @@
-<amplify-authenticator [formFields]="formFields">
-  <ng-template amplifySlot="header">
-    <div style="padding: var(--amplify-space-large); text-align: center">
-      <img
-        class="amplify-image"
-        alt="Amplify logo"
-        src="https://docs.amplify.aws/assets/logo-dark.svg"
-      />
-    </div>
-  </ng-template>
-
-  <ng-template amplifySlot="sign-in-header">
-    <h3
-      class="amplify-heading"
-      style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)"
-    >
-      Sign in to your account
-    </h3>
-  </ng-template>
-
-  <ng-template amplifySlot="sign-in-footer">
-    <div style="text-align: center">
+<div class="comments">
+  <div class="flex col justify-between p-4">
+    <h3 class="comments-title">Rapid Comment</h3>
+    <div>
       <button
-        (click)="authenticator.toResetPassword()"
-        class="amplify-button amplify-field-group__control"
-        data-fullwidth="false"
-        data-size="small"
-        data-variation="link"
         type="button"
-        style="font-weight: normal"
+        class="group flex shrink-0 items-center rounded-lg transition"
+        (click)="signOut()"
       >
-        Reset Password
-      </button>
-    </div>
-  </ng-template>
+        <img
+          alt="Man"
+          src="assets/placholder.jpg"
+          class="h-10 w-10 rounded-full object-cover"
+        />
+        <div class="ml-2 hidden text-left text-xs sm:block">
+          <strong class="block font-medium">{{ user.attributes.name }}</strong>
 
-  <ng-template amplifySlot="sign-up-header">
-    <h3
-      class="amplify-heading"
-      style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)"
-    >
-      Create a new account
-    </h3>
-  </ng-template>
-
-  <ng-template amplifySlot="sign-up-footer">
-    <div style="text-align: center">
-      <button
-        (click)="authenticator.toSignIn()"
-        class="amplify-button amplify-field-group__control"
-        data-fullwidth="false"
-        data-size="small"
-        data-variation="link"
-        type="button"
-        style="font-weight: normal"
-      >
-        Back to Sign In
-      </button>
-    </div>
-  </ng-template>
-
-  <ng-template amplifySlot="footer">
-    <div style="padding: var(--amplify-space-large); text-align: center">
-      <p class="amplify-text" style="color: var(--amplify-colors-neutral-80)">
-        © All Rights Reserved
-      </p>
-    </div>
-  </ng-template>
-
-  <ng-template amplifySlot="confirm-sign-up-header">
-    <h3
-      class="amplify-heading"
-      style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)"
-    >
-      Enter Information:
-    </h3>
-  </ng-template>
-
-  <ng-template amplifySlot="confirm-sign-up-footer">
-    <div>Footer Information</div>
-  </ng-template>
-
-  <ng-template amplifySlot="setup-totp-header">
-    <h3
-      class="amplify-heading"
-      style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)"
-    >
-      Enter Information:
-    </h3>
-  </ng-template>
-
-  <ng-template amplifySlot="setup-totp-footer">
-    <div>Footer Information</div>
-  </ng-template>
-
-  <ng-template amplifySlot="confirm-sign-in-header">
-    <h3
-      class="amplify-heading"
-      style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)"
-    >
-      Enter Information:
-    </h3>
-  </ng-template>
-
-  <ng-template amplifySlot="confirm-sign-in-footer">
-    <div>Footer Information</div>
-  </ng-template>
-
-  <ng-template amplifySlot="reset-password-header">
-    <h3
-      class="amplify-heading"
-      style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)"
-    >
-      Enter Information:
-    </h3>
-  </ng-template>
-
-  <ng-template amplifySlot="reset-password-footer">
-    <div>Footer Information</div>
-  </ng-template>
-
-  <ng-template amplifySlot="confirm-reset-password-header">
-    <h3
-      class="amplify-heading"
-      style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)"
-    >
-      Enter Information:
-    </h3>
-  </ng-template>
-
-  <ng-template amplifySlot="confirm-reset-password-footer">
-    <div>Footer Information</div>
-  </ng-template>
-  <ng-template
-    amplifySlot="authenticated"
-    let-user="user"
-    let-signOut="signOut"
-  >
-    <div class="comments">
-      <div class="flex col justify-between p-4">
-        <h3 class="comments-title">Rapid Comment</h3>
-        <div>
-          <button
-            type="button"
-            class="group flex shrink-0 items-center rounded-lg transition"
-            (click)="signOut()"
-          >
-            <img
-              alt="Man"
-              src="assets/placholder.jpg"
-              class="h-10 w-10 rounded-full object-cover"
+          <span class="text-gray-500"> {{ user.attributes.email }} </span>
+        </div>
+        <div class="h-8 w-8 rounded-full object-cover pl-3">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path
+              d="M160 96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96C43 32 0 75 0 128V384c0 53 43 96 96 96h64c17.7 0 32-14.3 32-32s-14.3-32-32-32H96c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32h64zM504.5 273.4c4.8-4.5 7.5-10.8 7.5-17.4s-2.7-12.9-7.5-17.4l-144-136c-7-6.6-17.2-8.4-26-4.6s-14.5 12.5-14.5 22v72H192c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32H320v72c0 9.6 5.7 18.2 14.5 22s19 2 26-4.6l144-136z"
             />
-            <div class="ml-2 hidden text-left text-xs sm:block">
-              <strong class="block font-medium">{{
-                user.attributes.name
-              }}</strong>
-
-              <span class="text-gray-500"> {{ user.attributes.email }} </span>
-            </div>
-            <div class="h-8 w-8 rounded-full object-cover pl-3">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <path
-                  d="M160 96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96C43 32 0 75 0 128V384c0 53 43 96 96 96h64c17.7 0 32-14.3 32-32s-14.3-32-32-32H96c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32h64zM504.5 273.4c4.8-4.5 7.5-10.8 7.5-17.4s-2.7-12.9-7.5-17.4l-144-136c-7-6.6-17.2-8.4-26-4.6s-14.5 12.5-14.5 22v72H192c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32H320v72c0 9.6 5.7 18.2 14.5 22s19 2 26-4.6l144-136z"
-                />
-              </svg>
-            </div>
-          </button>
+          </svg>
         </div>
-      </div>
-
-      <div class="px-3">
-        <app-comment-form (dataEvent)="receiveData($event)"></app-comment-form>
-        <div class="comment-thread">
-          <app-comments
-            *ngFor="let comment of comments"
-            [comments]="comment"
-            [totalPage]="totalPage"
-            [currentPage]="currentPage"
-          ></app-comments>
-          <button
-            *ngIf="this.totalPage > this.currentPage + 1"
-            (click)="nextPage()"
-          >
-            Load More
-          </button>
-        </div>
-      </div>
+      </button>
     </div>
-  </ng-template>
-</amplify-authenticator>
+  </div>
+
+  <div class="px-3">
+    <app-comment-form (dataEvent)="receiveData($event)"></app-comment-form>
+    <div class="comment-thread">
+      <app-comments
+        *ngFor="let comment of comments"
+        [comments]="comment"
+        [totalPage]="totalPage"
+        [currentPage]="currentPage"
+      ></app-comments>
+      <button
+        *ngIf="this.totalPage > this.currentPage + 1"
+        (click)="nextPage()"
+      >
+        Load More
+      </button>
+    </div>
+  </div>
+</div>

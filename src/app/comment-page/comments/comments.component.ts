@@ -2,7 +2,6 @@ import { ViewportScroller } from "@angular/common";
 import { Component, Input, OnInit, ChangeDetectorRef } from "@angular/core";
 // import { AuthService } from "@auth0/auth0-angular";
 import { map, take } from "rxjs";
-import { CommentsService } from "src/app/comments.service";
 import { CommentMeta, Vote } from "src/app/models/CommentMeta.model";
 import { Comment } from "src/app/models/Comments.model";
 
@@ -43,7 +42,7 @@ export class CommentsComponent implements OnInit {
   constructor(
     private commentService: APIService,
     private viewportScroller: ViewportScroller,
-    private commentsService: CommentsService,
+    // private commentsService: CommentsService,
     private cd: ChangeDetectorRef // private auth: AuthService
   ) {}
 

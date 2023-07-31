@@ -24,5 +24,6 @@ import { AmplifyAuthenticatorModule } from "@aws-amplify/ui-angular";
     ReactiveFormsModule,
     AmplifyAuthenticatorModule,
   ],
+  exports: [CommentPageComponent],
 })
 export class CommentPageModule {}

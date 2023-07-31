@@ -7,7 +7,6 @@ import {
 } from "@angular/core";
 // import { AuthService } from "@auth0/auth0-angular";
 import { map, take } from "rxjs";
-import { CommentsService } from "../../comments.service";
 import { Comment } from "../../models/Comments.model";
 import { Reply } from "../../models/Reply.model";
 import { User } from "../../models/User.model";

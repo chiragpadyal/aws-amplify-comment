@@ -4,10 +4,10 @@ import {
   Component,
   HostListener,
   Inject,
+  Input,
 } from "@angular/core";
 // import { AuthService } from "@auth0/auth0-angular";
 import { filter, map, take } from "rxjs";
-import { CommentsService } from "../comments.service";
 import { Page } from "../models/Page.model";
 import { User } from "../models/User.model";
 import { Comment } from "../models/Comments.model";
@@ -23,6 +23,8 @@ import { Hub } from "aws-amplify";
 export class CommentPageComponent {
   // TODO: Remove user header
   // TODO: Add stoper when not authenticated
+  @Input()
+  user: any = {};
   comments: any = [];
   title = "RapidComment";
   threadId = "1";
@@ -49,66 +51,46 @@ export class CommentPageComponent {
     public authenticator: AuthenticatorService
   ) {}
 
-  // services = {
-
-  //   async handleSignUp(formData: Record<string, any>) {
-  //     let { username, password, attributes } = formData;
-  //     // custom username
-  //     username = username.toLowerCase();
-  //     attributes.email = attributes.email.toLowerCase();
-
-  //     // custom attributes
-  //     new APIService().CreateComment
-
-  //     return Auth.signUp({
-  //       username,
-  //       password,
-  //       attributes,
-  //       autoSignIn: {
-  //         enabled: true,
-  //       },
-  //     });
-  //   },
-  // };
-
   printUser() {
     console.log(this.authenticator.user);
   }
   ngOnInit(): void {
     // Get all comments where parent is null
 
-    this.commentsService
-      .ListComments({ parentId: { attributeExists: false } })
-      .then((evt) => {
-        this.comments = evt.items;
-        console.log(evt.items);
-        this.cd.detectChanges();
-      });
-
-    this.commentsService.OnCreateCommentListener().subscribe((evt) => {
-      console.log("listen");
-      const data = (evt as any).value.data.onCreateComment;
-      console.log(data);
-      if (data.parentId == null) {
-        this.comments = [data, ...this.comments];
-      } else {
-        // silent reload angular
-        // window.location.reload();
-
-        // @ts-ignore
-        this.comments.forEach((comment: any) => {
-          if (comment.id === data.parentId) {
-            if (!comment.children.items) {
-              comment.children.items = [];
-            }
-            comment.children.items = [data, ...comment.children.items];
-            return true;
-          }
+    if (this.authenticator.authStatus) {
+      this.commentsService
+        .ListComments({ parentId: { attributeExists: false } })
+        .then((evt) => {
+          this.comments = evt.items;
+          console.log(evt.items);
+          this.cd.detectChanges();
         });
-      }
 
-      // this.cd.detectChanges();
-    });
+      this.commentsService.OnCreateCommentListener().subscribe((evt) => {
+        console.log("listen");
+        const data = (evt as any).value.data.onCreateComment;
+        console.log(data);
+        if (data.parentId == null) {
+          this.comments = [data, ...this.comments];
+        } else {
+          // silent reload angular
+          // window.location.reload();
+
+          // @ts-ignore
+          this.comments.forEach((comment: any) => {
+            if (comment.id === data.parentId) {
+              if (!comment.children.items) {
+                comment.children.items = [];
+              }
+              comment.children.items = [data, ...comment.children.items];
+              return true;
+            }
+          });
+        }
+
+        // this.cd.detectChanges();
+      });
+    }
   }
 
   nextPage() {}
@@ -132,5 +114,9 @@ export class CommentPageComponent {
       // Load Your Data Here
       this.nextPage();
     }
+  }
+
+  signOut() {
+    Auth.signOut();
   }
 }

@@ -109,3 +109,8 @@
 .replies {
   margin-top: 20px;
 }
+.amplify-button--primary {
+  background-color: var(
+    --amplify-components-button-primary-background-color
+  ) !important;
+}
