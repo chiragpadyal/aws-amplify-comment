@@ -1,0 +1,412 @@
+# this is an auto generated file. This will be overwritten
+
+subscription OnCreateThread(
+  $filter: ModelSubscriptionThreadFilterInput
+  $owner: String
+) {
+  onCreateThread(filter: $filter, owner: $owner) {
+    id
+    name
+    posts {
+      items {
+        id
+        content
+        createdAt
+        lastModified
+        likes
+        dislikes
+        quality
+        username
+        parentId
+        updatedAt
+        threadPostsId
+        __typename
+      }
+      nextToken
+      __typename
+    }
+    createdAt
+    updatedAt
+    owner
+    __typename
+  }
+}
+
+subscription OnUpdateThread(
+  $filter: ModelSubscriptionThreadFilterInput
+  $owner: String
+) {
+  onUpdateThread(filter: $filter, owner: $owner) {
+    id
+    name
+    posts {
+      items {
+        id
+        content
+        createdAt
+        lastModified
+        likes
+        dislikes
+        quality
+        username
+        parentId
+        updatedAt
+        threadPostsId
+        __typename
+      }
+      nextToken
+      __typename
+    }
+    createdAt
+    updatedAt
+    owner
+    __typename
+  }
+}
+
+subscription OnDeleteThread(
+  $filter: ModelSubscriptionThreadFilterInput
+  $owner: String
+) {
+  onDeleteThread(filter: $filter, owner: $owner) {
+    id
+    name
+    posts {
+      items {
+        id
+        content
+        createdAt
+        lastModified
+        likes
+        dislikes
+        quality
+        username
+        parentId
+        updatedAt
+        threadPostsId
+        __typename
+      }
+      nextToken
+      __typename
+    }
+    createdAt
+    updatedAt
+    owner
+    __typename
+  }
+}
+
+subscription OnCreateComment($filter: ModelSubscriptionCommentFilterInput) {
+  onCreateComment(filter: $filter) {
+    id
+    threadId {
+      id
+      name
+      posts {
+        nextToken
+        __typename
+      }
+      createdAt
+      updatedAt
+      owner
+      __typename
+    }
+    content
+    vote {
+      items {
+        id
+        vote
+        createdAt
+        updatedAt
+        commentVoteId
+        owner
+        __typename
+      }
+      nextToken
+      __typename
+    }
+    createdAt
+    lastModified
+    likes
+    dislikes
+    quality
+    username
+    parentId
+    children {
+      items {
+        id
+        content
+        createdAt
+        lastModified
+        likes
+        dislikes
+        quality
+        username
+        parentId
+        updatedAt
+        threadPostsId
+        __typename
+      }
+      nextToken
+      __typename
+    }
+    updatedAt
+    threadPostsId
+    __typename
+  }
+}
+
+subscription OnUpdateComment($filter: ModelSubscriptionCommentFilterInput) {
+  onUpdateComment(filter: $filter) {
+    id
+    threadId {
+      id
+      name
+      posts {
+        nextToken
+        __typename
+      }
+      createdAt
+      updatedAt
+      owner
+      __typename
+    }
+    content
+    vote {
+      items {
+        id
+        vote
+        createdAt
+        updatedAt
+        commentVoteId
+        owner
+        __typename
+      }
+      nextToken
+      __typename
+    }
+    createdAt
+    lastModified
+    likes
+    dislikes
+    quality
+    username
+    parentId
+    children {
+      items {
+        id
+        content
+        createdAt
+        lastModified
+        likes
+        dislikes
+        quality
+        username
+        parentId
+        updatedAt
+        threadPostsId
+        __typename
+      }
+      nextToken
+      __typename
+    }
+    updatedAt
+    threadPostsId
+    __typename
+  }
+}
+
+subscription OnDeleteComment($filter: ModelSubscriptionCommentFilterInput) {
+  onDeleteComment(filter: $filter) {
+    id
+    threadId {
+      id
+      name
+      posts {
+        nextToken
+        __typename
+      }
+      createdAt
+      updatedAt
+      owner
+      __typename
+    }
+    content
+    vote {
+      items {
+        id
+        vote
+        createdAt
+        updatedAt
+        commentVoteId
+        owner
+        __typename
+      }
+      nextToken
+      __typename
+    }
+    createdAt
+    lastModified
+    likes
+    dislikes
+    quality
+    username
+    parentId
+    children {
+      items {
+        id
+        content
+        createdAt
+        lastModified
+        likes
+        dislikes
+        quality
+        username
+        parentId
+        updatedAt
+        threadPostsId
+        __typename
+      }
+      nextToken
+      __typename
+    }
+    updatedAt
+    threadPostsId
+    __typename
+  }
+}
+
+subscription OnCreateReaction(
+  $filter: ModelSubscriptionReactionFilterInput
+  $owner: String
+) {
+  onCreateReaction(filter: $filter, owner: $owner) {
+    id
+    vote
+    comment {
+      id
+      threadId {
+        id
+        name
+        createdAt
+        updatedAt
+        owner
+        __typename
+      }
+      content
+      vote {
+        nextToken
+        __typename
+      }
+      createdAt
+      lastModified
+      likes
+      dislikes
+      quality
+      username
+      parentId
+      children {
+        nextToken
+        __typename
+      }
+      updatedAt
+      threadPostsId
+      __typename
+    }
+    createdAt
+    updatedAt
+    commentVoteId
+    owner
+    __typename
+  }
+}
+
+subscription OnUpdateReaction(
+  $filter: ModelSubscriptionReactionFilterInput
+  $owner: String
+) {
+  onUpdateReaction(filter: $filter, owner: $owner) {
+    id
+    vote
+    comment {
+      id
+      threadId {
+        id
+        name
+        createdAt
+        updatedAt
+        owner
+        __typename
+      }
+      content
+      vote {
+        nextToken
+        __typename
+      }
+      createdAt
+      lastModified
+      likes
+      dislikes
+      quality
+      username
+      parentId
+      children {
+        nextToken
+        __typename
+      }
+      updatedAt
+      threadPostsId
+      __typename
+    }
+    createdAt
+    updatedAt
+    commentVoteId
+    owner
+    __typename
+  }
+}
+
+subscription OnDeleteReaction(
+  $filter: ModelSubscriptionReactionFilterInput
+  $owner: String
+) {
+  onDeleteReaction(filter: $filter, owner: $owner) {
+    id
+    vote
+    comment {
+      id
+      threadId {
+        id
+        name
+        createdAt
+        updatedAt
+        owner
+        __typename
+      }
+      content
+      vote {
+        nextToken
+        __typename
+      }
+      createdAt
+      lastModified
+      likes
+      dislikes
+      quality
+      username
+      parentId
+      children {
+        nextToken
+        __typename
+      }
+      updatedAt
+      threadPostsId
+      __typename
+    }
+    createdAt
+    updatedAt
+    commentVoteId
+    owner
+    __typename
+  }
+}

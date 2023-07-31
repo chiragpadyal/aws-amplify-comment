@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-rapidcommentsangular-dev-202257-authRole",
+      "UnauthRoleArn": "arn:aws:iam::644116729684:role/amplify-rapidcommentsangular-dev-202257-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::644116729684:role/amplify-rapidcommentsangular-dev-202257-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-rapidcommentsangular-dev-202257-deployment",
+      "UnauthRoleName": "amplify-rapidcommentsangular-dev-202257-unauthRole",
+      "StackName": "amplify-rapidcommentsangular-dev-202257",
+      "StackId": "arn:aws:cloudformation:ap-south-1:644116729684:stack/amplify-rapidcommentsangular-dev-202257/c5cef870-2ee8-11ee-88ef-0ab85aa40fce",
+      "AmplifyAppId": "d39cqweqdxxan"
+    },
+    "categories": {
+      "auth": {
+        "rapidcommentsangular5a1f4dfd": {}
+      },
+      "api": {
+        "rapidcommentsangular": {}
+      }
+    }
+  }
+}

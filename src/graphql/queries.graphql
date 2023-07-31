@@ -1,0 +1,279 @@
+# this is an auto generated file. This will be overwritten
+
+query GetThread($id: ID!) {
+  getThread(id: $id) {
+    id
+    name
+    posts {
+      items {
+        id
+        content
+        createdAt
+        lastModified
+        likes
+        dislikes
+        quality
+        username
+        parentId
+        updatedAt
+        threadPostsId
+        __typename
+      }
+      nextToken
+      __typename
+    }
+    createdAt
+    updatedAt
+    owner
+    __typename
+  }
+}
+
+query ListThreads(
+  $filter: ModelThreadFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listThreads(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      posts {
+        nextToken
+        __typename
+      }
+      createdAt
+      updatedAt
+      owner
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query GetComment($id: ID!) {
+  getComment(id: $id) {
+    id
+    threadId {
+      id
+      name
+      posts {
+        nextToken
+        __typename
+      }
+      createdAt
+      updatedAt
+      owner
+      __typename
+    }
+    content
+    vote {
+      items {
+        id
+        vote
+        createdAt
+        updatedAt
+        commentVoteId
+        owner
+        __typename
+      }
+      nextToken
+      __typename
+    }
+    createdAt
+    lastModified
+    likes
+    dislikes
+    quality
+    username
+    parentId
+    children {
+      items {
+        id
+        content
+        createdAt
+        lastModified
+        likes
+        dislikes
+        quality
+        username
+        parentId
+        updatedAt
+        threadPostsId
+        __typename
+      }
+      nextToken
+      __typename
+    }
+    updatedAt
+    threadPostsId
+    __typename
+  }
+}
+
+query ListComments(
+  $filter: ModelCommentFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      threadId {
+        id
+        name
+        createdAt
+        updatedAt
+        owner
+        __typename
+      }
+      content
+      vote {
+        nextToken
+        __typename
+      }
+      createdAt
+      lastModified
+      likes
+      dislikes
+      quality
+      username
+      parentId
+      children {
+        nextToken
+        __typename
+      }
+      updatedAt
+      threadPostsId
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query GetReaction($id: ID!) {
+  getReaction(id: $id) {
+    id
+    vote
+    comment {
+      id
+      threadId {
+        id
+        name
+        createdAt
+        updatedAt
+        owner
+        __typename
+      }
+      content
+      vote {
+        nextToken
+        __typename
+      }
+      createdAt
+      lastModified
+      likes
+      dislikes
+      quality
+      username
+      parentId
+      children {
+        nextToken
+        __typename
+      }
+      updatedAt
+      threadPostsId
+      __typename
+    }
+    createdAt
+    updatedAt
+    commentVoteId
+    owner
+    __typename
+  }
+}
+
+query ListReactions(
+  $filter: ModelReactionFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listReactions(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      vote
+      comment {
+        id
+        content
+        createdAt
+        lastModified
+        likes
+        dislikes
+        quality
+        username
+        parentId
+        updatedAt
+        threadPostsId
+        __typename
+      }
+      createdAt
+      updatedAt
+      commentVoteId
+      owner
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+
+query CategoryByParent(
+  $parentId: ID!
+  $sortDirection: ModelSortDirection
+  $filter: ModelCommentFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  categoryByParent(
+    parentId: $parentId
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      threadId {
+        id
+        name
+        createdAt
+        updatedAt
+        owner
+        __typename
+      }
+      content
+      vote {
+        nextToken
+        __typename
+      }
+      createdAt
+      lastModified
+      likes
+      dislikes
+      quality
+      username
+      parentId
+      children {
+        nextToken
+        __typename
+      }
+      updatedAt
+      threadPostsId
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}

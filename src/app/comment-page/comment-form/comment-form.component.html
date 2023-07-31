@@ -1,0 +1,29 @@
+<form *ngIf="hasCancelButton || hasCancelButtonForReply">
+  <div>
+    <label class="sr-only" for="message">Message</label>
+  </div>
+  <quill-editor
+    [(ngModel)]="commentMessage"
+    trackChanges="all"
+    [modules]="modules"
+    class="w-full rounded-lg text-sm"
+    placeholder="Write Your Comment!"
+    id="message"
+    name="message"
+    style="height: 120px"
+  ></quill-editor>
+  <button
+    class="comment-form-button"
+    (click)="buttonVal === 'Reply' ? handleReply() : handleSubmit()"
+  >
+    {{ buttonVal }}
+  </button>
+
+  <!-- <button
+    *ngIf="hasCancelButton || hasCancelButtonForReply"
+    class="comment-form-button"
+    (click)="handleCancel()"
+  >
+    Cancel
+  </button> -->
+</form>

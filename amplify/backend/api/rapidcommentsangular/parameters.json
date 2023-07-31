@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "rapidcommentsangular",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authrapidcommentsangular5a1f4dfd",
+      "Outputs.UserPoolId"
+    ]
+  }
+}

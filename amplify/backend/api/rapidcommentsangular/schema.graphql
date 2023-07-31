@@ -1,0 +1,56 @@
+# This "input" configures a global authorization rule to enable public access to
+# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+# input AMPLIFY {
+#   globalAuthRule: AuthRule = { allow: public }
+# } # FOR TESTING ONLY!
+
+type Thread
+  @model
+  @auth(
+    rules: [
+      { allow: owner, ownerField: "owner", operations: [create, update, read] }
+      { allow: private, provider: userPools, operations: [read] }
+    ]
+  ) {
+  id: ID!
+  name: String!
+  posts: [Comment] @hasMany
+}
+
+type Comment
+  @model
+  @auth(
+    rules: [
+      # { allow: owner, ownerField: "owner", operations: [create, update, read] }
+      {
+        allow: private
+        provider: userPools
+        operations: [create, update, read]
+      }
+    ]
+  ) {
+  id: ID!
+  threadId: Thread @belongsTo
+  content: String!
+  vote: [Reaction] @hasMany
+  createdAt: AWSDateTime!
+  lastModified: AWSDateTime
+  likes: Int!
+  dislikes: Int!
+  quality: Float!
+  username: String!
+  parentId: ID @index(name: "byParent", queryField: "categoryByParent")
+  children: [Comment] @hasMany(indexName: "byParent", fields: ["id"])
+}
+
+type Reaction
+  @model
+  @auth(
+    rules: [
+      { allow: owner, ownerField: "owner", operations: [create, update, read] }
+    ]
+  ) {
+  id: ID!
+  vote: Int!
+  comment: Comment @belongsTo
+}

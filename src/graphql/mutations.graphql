@@ -1,0 +1,421 @@
+# this is an auto generated file. This will be overwritten
+
+mutation CreateThread(
+  $input: CreateThreadInput!
+  $condition: ModelThreadConditionInput
+) {
+  createThread(input: $input, condition: $condition) {
+    id
+    name
+    posts {
+      items {
+        id
+        content
+        createdAt
+        lastModified
+        likes
+        dislikes
+        quality
+        username
+        parentId
+        updatedAt
+        threadPostsId
+        __typename
+      }
+      nextToken
+      __typename
+    }
+    createdAt
+    updatedAt
+    owner
+    __typename
+  }
+}
+
+mutation UpdateThread(
+  $input: UpdateThreadInput!
+  $condition: ModelThreadConditionInput
+) {
+  updateThread(input: $input, condition: $condition) {
+    id
+    name
+    posts {
+      items {
+        id
+        content
+        createdAt
+        lastModified
+        likes
+        dislikes
+        quality
+        username
+        parentId
+        updatedAt
+        threadPostsId
+        __typename
+      }
+      nextToken
+      __typename
+    }
+    createdAt
+    updatedAt
+    owner
+    __typename
+  }
+}
+
+mutation DeleteThread(
+  $input: DeleteThreadInput!
+  $condition: ModelThreadConditionInput
+) {
+  deleteThread(input: $input, condition: $condition) {
+    id
+    name
+    posts {
+      items {
+        id
+        content
+        createdAt
+        lastModified
+        likes
+        dislikes
+        quality
+        username
+        parentId
+        updatedAt
+        threadPostsId
+        __typename
+      }
+      nextToken
+      __typename
+    }
+    createdAt
+    updatedAt
+    owner
+    __typename
+  }
+}
+
+mutation CreateComment(
+  $input: CreateCommentInput!
+  $condition: ModelCommentConditionInput
+) {
+  createComment(input: $input, condition: $condition) {
+    id
+    threadId {
+      id
+      name
+      posts {
+        nextToken
+        __typename
+      }
+      createdAt
+      updatedAt
+      owner
+      __typename
+    }
+    content
+    vote {
+      items {
+        id
+        vote
+        createdAt
+        updatedAt
+        commentVoteId
+        owner
+        __typename
+      }
+      nextToken
+      __typename
+    }
+    createdAt
+    lastModified
+    likes
+    dislikes
+    quality
+    username
+    parentId
+    children {
+      items {
+        id
+        content
+        createdAt
+        lastModified
+        likes
+        dislikes
+        quality
+        username
+        parentId
+        updatedAt
+        threadPostsId
+        __typename
+      }
+      nextToken
+      __typename
+    }
+    updatedAt
+    threadPostsId
+    __typename
+  }
+}
+
+mutation UpdateComment(
+  $input: UpdateCommentInput!
+  $condition: ModelCommentConditionInput
+) {
+  updateComment(input: $input, condition: $condition) {
+    id
+    threadId {
+      id
+      name
+      posts {
+        nextToken
+        __typename
+      }
+      createdAt
+      updatedAt
+      owner
+      __typename
+    }
+    content
+    vote {
+      items {
+        id
+        vote
+        createdAt
+        updatedAt
+        commentVoteId
+        owner
+        __typename
+      }
+      nextToken
+      __typename
+    }
+    createdAt
+    lastModified
+    likes
+    dislikes
+    quality
+    username
+    parentId
+    children {
+      items {
+        id
+        content
+        createdAt
+        lastModified
+        likes
+        dislikes
+        quality
+        username
+        parentId
+        updatedAt
+        threadPostsId
+        __typename
+      }
+      nextToken
+      __typename
+    }
+    updatedAt
+    threadPostsId
+    __typename
+  }
+}
+
+mutation DeleteComment(
+  $input: DeleteCommentInput!
+  $condition: ModelCommentConditionInput
+) {
+  deleteComment(input: $input, condition: $condition) {
+    id
+    threadId {
+      id
+      name
+      posts {
+        nextToken
+        __typename
+      }
+      createdAt
+      updatedAt
+      owner
+      __typename
+    }
+    content
+    vote {
+      items {
+        id
+        vote
+        createdAt
+        updatedAt
+        commentVoteId
+        owner
+        __typename
+      }
+      nextToken
+      __typename
+    }
+    createdAt
+    lastModified
+    likes
+    dislikes
+    quality
+    username
+    parentId
+    children {
+      items {
+        id
+        content
+        createdAt
+        lastModified
+        likes
+        dislikes
+        quality
+        username
+        parentId
+        updatedAt
+        threadPostsId
+        __typename
+      }
+      nextToken
+      __typename
+    }
+    updatedAt
+    threadPostsId
+    __typename
+  }
+}
+
+mutation CreateReaction(
+  $input: CreateReactionInput!
+  $condition: ModelReactionConditionInput
+) {
+  createReaction(input: $input, condition: $condition) {
+    id
+    vote
+    comment {
+      id
+      threadId {
+        id
+        name
+        createdAt
+        updatedAt
+        owner
+        __typename
+      }
+      content
+      vote {
+        nextToken
+        __typename
+      }
+      createdAt
+      lastModified
+      likes
+      dislikes
+      quality
+      username
+      parentId
+      children {
+        nextToken
+        __typename
+      }
+      updatedAt
+      threadPostsId
+      __typename
+    }
+    createdAt
+    updatedAt
+    commentVoteId
+    owner
+    __typename
+  }
+}
+
+mutation UpdateReaction(
+  $input: UpdateReactionInput!
+  $condition: ModelReactionConditionInput
+) {
+  updateReaction(input: $input, condition: $condition) {
+    id
+    vote
+    comment {
+      id
+      threadId {
+        id
+        name
+        createdAt
+        updatedAt
+        owner
+        __typename
+      }
+      content
+      vote {
+        nextToken
+        __typename
+      }
+      createdAt
+      lastModified
+      likes
+      dislikes
+      quality
+      username
+      parentId
+      children {
+        nextToken
+        __typename
+      }
+      updatedAt
+      threadPostsId
+      __typename
+    }
+    createdAt
+    updatedAt
+    commentVoteId
+    owner
+    __typename
+  }
+}
+
+mutation DeleteReaction(
+  $input: DeleteReactionInput!
+  $condition: ModelReactionConditionInput
+) {
+  deleteReaction(input: $input, condition: $condition) {
+    id
+    vote
+    comment {
+      id
+      threadId {
+        id
+        name
+        createdAt
+        updatedAt
+        owner
+        __typename
+      }
+      content
+      vote {
+        nextToken
+        __typename
+      }
+      createdAt
+      lastModified
+      likes
+      dislikes
+      quality
+      username
+      parentId
+      children {
+        nextToken
+        __typename
+      }
+      updatedAt
+      threadPostsId
+      __typename
+    }
+    createdAt
+    updatedAt
+    commentVoteId
+    owner
+    __typename
+  }
+}
